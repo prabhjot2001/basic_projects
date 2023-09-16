@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My NoteBook</title>
+    <link rel="stylesheet" href="notebook.css">
+    <script src="https://kit.fontawesome.com/d2f4f4e776.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="one">
+        <h1>Notebook One</h1>
+    </div>
+
+
+    <div class="header">
+        <div class="picker">
+            <h3>Select pen color here :-</h3>
+            <i class="fa-solid fa-pen" id="pen"></i>
+            <input type="color" id="colorpicker">
+            <label id="clr_label">#000000</label>
+        </div>
+
+        <div class="font">
+            <h3>Select font from here:-</h3>
+            <select id="font">
+                <option value="Cedarville Cursive">Cedarville Cursive</option>
+                <option value="arial">Arial</option>
+                <option value="cursive">Cursive</option>
+                <option value="Segoe UI">Segoe UI</option>
+            </select>
+        </div>
+
+        <div class="size">
+            <h3>Select font size:-</h3>
+            <input type="number" id="range">
+            <button id="font_btn" onclick="setfont()" class="button-52">Ok</button>
+        </div>
+    </div>
+
+
+    <div class="main">
+        <textarea name="" id="notebook" cols="60" rows="13" placeholder="Write from here..."
+            spellcheck="false"></textarea>
+    </div>
+
+
+
+
+    <script>
+
+
+        let clr_input = document.getElementById('clr_input');
+        let clr_label = document.getElementById('clr_label');
+        let pen = document.getElementById('pen');
+        let font = document.getElementById('font');
+        let fontsize = document.getElementById('range');
+        let set_color;
+        let txtArea = document.getElementById("notebook");
+        let range_label = document.getElementById('range_label');
+
+
+        font.addEventListener('input', function (x) {
+            txtArea.style.fontFamily = this.value;
+        })
+
+        let color = document.getElementById('colorpicker');
+        color.addEventListener('input', function (e) {
+            clr_label.innerHTML = this.value;
+
+            set_color = this.value;
+            txtArea.style.color = set_color;
+            pen.style.color = this.value;
+        })
+
+        let content = document.getElementById("notebook").value;
+
+    </script>
+</body>
+
+</html>
